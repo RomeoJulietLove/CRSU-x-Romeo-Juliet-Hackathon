@@ -8,7 +8,7 @@ body:
     id: team
     attributes:
       label: "Team name and size"
-      description: "One to four participants; do not include contact details."
+      description: "One to three participants; do not include contact details."
     validations:
       required: true
   - type: textarea

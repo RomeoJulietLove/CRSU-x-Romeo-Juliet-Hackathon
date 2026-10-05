@@ -52,7 +52,7 @@ def build(output):
         dump_lines(target / 'questionnaires.jsonl', [questionnaire(m) for m in state['members']])
         dump_lines(target / 'conversations.jsonl', [conversation(m) for m in state['members'] if conversation(m)['messages']])
         with (target / 'members_flat.csv').open('w', newline='') as stream:
-            writer = csv.DictWriter(stream, fieldnames=['member_id', 'pool_id', 'age', 'gender', 'zone', 'available'] + SOFT)
+            writer = csv.DictWriter(stream, fieldnames=['member_id', 'pool_id', 'age', 'gender', 'zone', 'available'] + SOFT, lineterminator='\n')
             writer.writeheader()
             writer.writerows({**{k: m[k] for k in ['member_id', 'pool_id', 'age', 'gender', 'zone', 'available']}, **{k: m['fields'][k] for k in SOFT}} for m in state['members'])
         pools.append(dict(pool_id=pool, seed=seed, members=len(state['members']), introductions=len(state['introductions']), feedback_events=len(state['feedback']), snapshot_day=30))

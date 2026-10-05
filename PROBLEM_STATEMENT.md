@@ -60,7 +60,7 @@ Your system must perform the following tasks through the participant interface.
 
 You may use statistical models, graph optimisation, bandit methods, reinforcement learning, rules or a combination. A simpler method with convincing experiments is a valid submission. No particular model family is required.
 
-The minimum executable output is a list of proposed pairs. For probability analysis in the report, estimate A accepting B, B accepting A, and both accepting separately. These are different quantities. Multiplying directional probabilities requires an independence assumption that may not hold.
+The executable output consists of clarification requests and proposed pairs through the two-phase JSON protocol; either list may be empty. Probability estimates are optional and do not affect ranking. If reported, distinguish A accepting B, B accepting A, and both accepting, and define the prediction target and observation window. These are different quantities. Multiplying directional probabilities requires an independence assumption that may not hold.
 
 ## 4 The development dataset
 
@@ -149,7 +149,7 @@ For a proposed pair to be valid, all of the following must hold:
 - The pair has not already been introduced in the episode.
 - Neither person appears in another pair in the same batch or has an outstanding introduction.
 
-The simulator validates the complete batch before applying it. Invalid actions raise an error and do not create a partial batch. Any invalid action, malformed output, runtime failure or exceeded execution limit makes that evaluation episode invalid. A submission with an invalid assessed episode is ineligible for technical ranking until corrected before the deadline.
+The simulator validates the complete batch before applying it. Invalid actions raise an error and do not create a partial batch. Any invalid action, malformed output, runtime failure or exceeded execution limit makes that evaluation episode invalid. A submission with an invalid assessed episode is ineligible for technical ranking. Teams may replace their submitted version before the deadline; no participant fixes are accepted after it, including when private assessment happens later. See Section 12 for validation and the version-freeze policy.
 
 A high predicted outcome cannot compensate for a constraint violation. A person without a feasible candidate may remain unmatched. The report should explain such cases rather than silently remove them from coverage statistics.
 
@@ -189,6 +189,12 @@ Separate model uncertainty from missing data and stochastic outcomes. An explana
 
 Each assessed episode has 200 members, 60 decision days and 40 follow-up days. There are no new asks or introductions during follow-up. Feedback remains observable. Every episode begins with empty policy memory. The denominator is the number of members who arrived by decision day 59, including members who later left or were never served.
 
+For each episode, let N be the number of members who arrived by decision day 59 and M the number of introductions that qualify for Mutual Second-Meeting Intention:
+
+`MSMI per 100 arrived members = 100 × M ÷ N`
+
+One qualifying pair counts as one MSMI outcome, not two. For example, one qualifying introduction among 200 arrived members scores 0.5. Coverage is the proportion of those same N members who received at least one introduction: `distinct arrived members introduced ÷ N`. Count each served member once, even if they received several introductions. Include members who later left or paused in both denominators. If N is zero, both metrics are defined as zero.
+
 The primary score is the equally weighted mean of MSMI per 100 arrived members across six scenario families: standard, sparse geography, cold start, delayed dates, shifted outcome weights and changing response conditions. Each family uses 20 independent private seeds, giving 120 episodes. Within each family, average episode scores; then average the six family means. Do not pool denominators across families or select a team's best seed. Private seeds and worlds are not released to policies. The public variants let teams test the same categories without exposing assessed episodes.
 
 Rank eligible submissions by this primary score in descending order. Break exact unrounded ties by mean distinct-member introduction coverage, then mean mutual acceptances per 100 arrived members, then lower mean clarification cost, then lower measured inference time. A remaining exact tie shares rank. There is no subjective multiplier or undisclosed scoring weight. All assessed episodes must be valid. The supplied evaluator writes the full episode results and ranking statistics; organisers run the same protocol against held-back worlds using isolated policy containers.
@@ -211,17 +217,21 @@ Only observable state, clarification results, feedback, policy-owned memory and 
 
 CRSU Round 1 (research and ideation) runs from 5–11 October 2026. Research submissions close on 11 October 2026 at 23:59 IST (18:29 UTC). The final build round runs from 12–18 October 2026, with build submissions closing on 18 October at 23:59 IST (18:29 UTC). Teams have one to three participants. Mentorship and workshops are not included in this CRSU track. Each team may submit one assessed entry; revisions before the applicable deadline replace its earlier entry. Research feedback does not change the public technical rules.
 
-Submit through this repository's Issues tab using the Research submission or Final submission template. These are public submissions: include your team name and public project links, not phone numbers, personal dating information, passwords or private participant data. The issue creation timestamp and linked immutable commit determine the submitted version. Publish a source archive or repository accessible without requesting credentials. If using a repository, provide its full 40-character commit SHA. Results generated after the deadline do not change the assessed version.
+Submit through this repository's Issues tab using the Research submission or Final submission template. These are public submissions: include your team name and public project links, not phone numbers, personal dating information, passwords or private participant data. The issue creation timestamp and linked immutable commit determine the submitted version. Publish a source archive or repository accessible without requesting credentials. If using a repository, provide its full 40-character commit SHA. Alternatively, provide an immutable public archive URL and the full SHA-256 checksum of that archive's exact bytes. A latest-branch ZIP URL, editable shared-drive file or mutable download link is not an immutable archive. A changed archive or checksum mismatch is invalid; organisers assess only the version pinned before the deadline. Results generated after the deadline do not change the assessed version.
 
-The research note must explain the hypothesis, both-direction estimation, allocation method, clarification strategy, baseline, planned experiments and expected failure cases. Submit it as a PDF or Markdown file in your own project and link it from the research issue.
+The research note must explain the hypothesis, reciprocal feasibility, any optional probability estimates, allocation method, clarification strategy, baseline, planned experiments and expected failure cases. Submit it as a PDF or Markdown file in your own project and link it from the research issue.
 
 The final project must contain the policy, Dockerfile, pinned dependencies, inference assets, reproducible evaluation command, machine-readable results, technical report and attribution. Include all three baseline comparisons, at least one ablation, scenario-level results, declared training seeds and inference random seed. Explain failures involving sparse supply, withheld answers, delayed feedback and competition for the same candidate. A dashboard or presentation is optional; the runnable policy and report are required. docs/SUBMISSION.md provides the complete checklist and a copyable local verification sequence.
+
+Teams can obtain validation results before the deadline by running the published tests, data verification and local/container evaluation commands in docs/SUBMISSION.md. A successful public run checks the interface and tested episodes; it does not guarantee that every private episode will be valid. Organiser validation feedback, if received before the deadline, may be used to revise and resubmit before it. Individual pre-deadline organiser feedback and early private assessment are not guaranteed.
+
+The submitted commit or archive is frozen at the applicable deadline. Private assessment may take place afterwards. Failures first discovered during that assessment do not permit post-deadline code, dependency, asset or packaging fixes, and an invalid assessed episode makes the entry ineligible. Organiser errors or defects in the common kit must be handled through the public corrections policy for all affected teams, without silently replacing a team's submitted version.
 
 ## 13 Communication and corrections
 
 Use the Question template in this repository's Issues tab for technical questions. Search existing questions first and keep one topic per issue. Maintainers answer publicly so every team receives the same clarification. Use the Bug report template for reproducible kit defects. Never attach real-member data or credentials.
 
-The repository is the authoritative place for the PS, data, FAQ, version history and technical clarifications. Any separate Google Chat Space, WhatsApp group, email announcement or Unstop listing should link here. No separate chat account is needed to obtain the kit. Rule-changing corrections must be written in CHANGELOG.md and shared through a public issue before they apply; informal messages do not silently amend this release.
+The repository is the authoritative place for the PS, data, FAQ, version history and technical clarifications. Official event announcements and reminders are shared through [this event's Discord server](https://discord.gg/ka3uRZza6). Discord, email announcements and the Unstop listing should link to this repository. No separate chat account is needed to obtain the kit. Rule-changing corrections must be written in CHANGELOG.md and shared through a public issue before they apply; informal messages do not silently amend this release.
 
 ## 14 Data provenance and permitted use
 

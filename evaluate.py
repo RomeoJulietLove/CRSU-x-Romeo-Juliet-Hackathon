@@ -105,7 +105,9 @@ def episode(world, command, timeout=10, simulator_class=Simulator):
         for member in (intro['user_a'], intro['user_b']):
             first.setdefault(member, intro['assigned_day'])
     waits = sorted(first[i] - arrived[i] for i in first)
-    result.update(valid=True, served_members=len(first), unserved_members=len(arrived) - len(first),
+    result.update(valid=True, arrived_members=len(arrived),
+                  msmi_per_100_arrived_members=100 * result['mutual_second_meeting_intention'] / max(1, len(arrived)),
+                  served_members=len(first), unserved_members=len(arrived) - len(first),
                   coverage=len(first) / max(1, len(arrived)),
                   mutual_acceptances_per_100=100 * result['mutual_acceptances'] / max(1, len(arrived)),
                   first_introduction_wait_days=waits,

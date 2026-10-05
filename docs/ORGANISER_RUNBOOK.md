@@ -29,3 +29,7 @@ A full run has 14,400 short policy invocations and can take substantial time bec
 Use each result's `summary.ranking_key_descending`, sorted descending. This implements primary score, coverage, mutual acceptance, lower clarification cost and lower inference time. A remaining exact tie shares rank. Keep full private outputs organiser-controlled until assessment ends; publish only agreed aggregate results, not private seeds, hidden member fields or world files.
 
 Research notes are approach feedback and do not add an undisclosed leaderboard weight. Record technical corrections publicly in CHANGELOG.md and a repository issue. Official submissions use the issue creation timestamp and the immutable version supplied before the deadline.
+
+## Submission validation and frozen versions
+
+Verify the full commit SHA or immutable archive URL and SHA-256 before building. Reject changed archives and checksum mismatches. Assessment may run after the submission deadline; do not accept a replacement version to fix a failure discovered then. Teams can self-validate before the deadline, but an early organiser/private validation result is not guaranteed. Publish any common-kit correction for all affected teams and assess their frozen submissions under the same protocol.

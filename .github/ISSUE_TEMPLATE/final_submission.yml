@@ -8,14 +8,14 @@ body:
     id: team
     attributes:
       label: "Team name and size"
-      description: "One to four participants; do not include contact details."
+      description: "One to three participants; do not include contact details."
     validations:
       required: true
   - type: textarea
     id: source
     attributes:
       label: "Public source URL and immutable version"
-      description: "Provide a repository URL and full 40-character commit SHA, or source archive URL and SHA-256."
+      description: "Provide a repository URL and full 40-character commit SHA, or immutable public archive URL and full SHA-256 of its exact bytes; mutable download links are invalid."
     validations:
       required: true
   - type: textarea

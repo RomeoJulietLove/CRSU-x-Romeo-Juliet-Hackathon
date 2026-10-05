@@ -2,7 +2,7 @@
 
 A complete report explains the claim and supplies evidence rather than presenting only a score.
 
-1. State the hypothesis and the policy's decision objective. Describe reciprocal eligibility, prediction targets, allocation, waiting and clarification.
+1. State the hypothesis and the policy's decision objective. Describe reciprocal eligibility, allocation, waiting and clarification. Probability estimates are optional; if reported, define each directional and joint prediction target and its observation window.
 2. Define the observations used at each decision. Explain missingness, declined answers, delayed feedback, selective labels and leakage prevention.
 3. Describe training, inference assets, randomness, dependencies, external data, models and coding-tool use.
 4. Compare your method with all three supplied baselines on identical seeds and all six scenario families. Include full JSON results and commands.
