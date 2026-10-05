@@ -39,3 +39,7 @@
 **Can we fix a failure discovered after the deadline?** No. Self-validate using the published tests and public/container evaluator before the deadline. Early organiser/private validation is not guaranteed; later private assessment uses the frozen commit or checksum-pinned archive. See SUBMISSION.md for the full policy.
 
 **Where are event announcements?** Join [the official Discord server](https://discord.gg/ka3uRZza6). Technical questions and corrections remain public in this repository. Joining Discord does not complete event registration.
+
+**How do we submit Round 1?** Use the Google Form the organisers will release soon through [Discord](https://discord.gg/ka3uRZza6) and [the submission guide](SUBMISSION.md#research-submission). Research submissions close 9 October 2026 at 23:59 IST. GitHub Issues are not the research submission route.
+
+**When are results and Round 2?** Round 1 results will be announced by 11 October 2026 at 22:00 IST. Round 2 starts 12 October. Final builds remain due 18 October 2026 at 23:59 IST through the Final submission issue form.

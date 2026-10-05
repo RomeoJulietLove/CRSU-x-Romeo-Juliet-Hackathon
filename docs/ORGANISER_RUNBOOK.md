@@ -28,7 +28,7 @@ A full run has 14,400 short policy invocations and can take substantial time bec
 
 Use each result's `summary.ranking_key_descending`, sorted descending. This implements primary score, coverage, mutual acceptance, lower clarification cost and lower inference time. A remaining exact tie shares rank. Keep full private outputs organiser-controlled until assessment ends; publish only agreed aggregate results, not private seeds, hidden member fields or world files.
 
-Research notes are approach feedback and do not add an undisclosed leaderboard weight. Record technical corrections publicly in CHANGELOG.md and a repository issue. Official submissions use the issue creation timestamp and the immutable version supplied before the deadline.
+Round 1 research submissions are collected through the forthcoming Google Form and close 9 October 2026 at 23:59 IST. Use form receipt timestamps for research submissions and revisions, and retain the submitted documents or fixed versions. Announce Round 1 results by 11 October at 22:00 IST. Round 2 starts 12 October, with final builds due 18 October at 23:59 IST through GitHub's Final submission issue form. The final build's latest immutable version pinned before that deadline is assessed; issue creation before the deadline does not validate a late revision. Research assessment does not add an undisclosed weight to the final technical score. Record technical corrections publicly in CHANGELOG.md and a repository issue.
 
 ## Submission validation and frozen versions
 

@@ -21,12 +21,12 @@ On Windows, use `py` instead of `python` if needed. On macOS/Linux, use `python3
 ## CRSU participation
 
 - **Teams:** 1–3 participants.
-- **Round 1 (research and ideation):** 5–11 October 2026.
+- **Round 1 (research and ideation):** 5–9 October 2026; results by 11 October, 22:00 IST.
 - **Final build:** 12–18 October 2026.
 - **Registration:** complete registration on both [Unstop](https://unstop.com/) and [events.romeojuliet.love](https://events.romeojuliet.love/crsu-hackathon-2026). Complete the event site's voice chat; it issues a participant code. The team leader must enter each team member's issued code while completing registration on Unstop.
 - **Mentorship and workshops:** these are not part of the CRSU track.
 
-Use the Research, Final submission and Question issue forms linked below for technical submissions and questions. Event registration or the participant code is handled through Unstop and the event website, not through GitHub.
+Use the forthcoming Google Form for Round 1 research submissions. Use the Final submission and Question issue forms linked below for build submissions and technical questions. Event registration or the participant code is handled through Unstop and the event website, not through GitHub.
 
 ## What is included
 
@@ -71,7 +71,16 @@ Local subprocess mode is only for trusted development code. Assessed submissions
 
 ## Submit and ask questions
 
-Research/ideation deadline: **11 October 2026, 23:59 IST**. Final build deadline: **18 October 2026, 23:59 IST**. Submit through the [Research submission](https://github.com/RomeoJulietLove/CRSU-x-Romeo-Juliet-Hackathon/issues/new?template=research_submission.yml), [Final submission](https://github.com/RomeoJulietLove/CRSU-x-Romeo-Juliet-Hackathon/issues/new?template=final_submission.yml) or [Question](https://github.com/RomeoJulietLove/CRSU-x-Romeo-Juliet-Hackathon/issues/new?template=question.yml) issue form. Share public project links and an immutable commit SHA; never post personal data, access codes or credentials.
+| Milestone | Date and time (IST) |
+|---|---|
+| Round 1 research submission closes | 9 October 2026, 23:59 |
+| Round 1 results announced by | 11 October 2026, 22:00 |
+| Round 2 build starts | 12 October 2026 |
+| Final build submission closes | 18 October 2026, 23:59 |
+
+**Round 1:** submit the research note through a Google Form. The organisers will release the link soon through [Discord](https://discord.gg/ka3uRZza6) and [the submission guide](docs/SUBMISSION.md#research-submission). GitHub Issues are not the research submission route.
+
+**Round 2:** use the [Final submission](https://github.com/RomeoJulietLove/CRSU-x-Romeo-Juliet-Hackathon/issues/new?template=final_submission.yml) issue form by the final deadline. Provide the immutable submitted version and required report/results. Use [Question](https://github.com/RomeoJulietLove/CRSU-x-Romeo-Juliet-Hackathon/issues/new?template=question.yml) for technical questions. Never post personal data, access codes or credentials in public issues.
 
 The repository is the technical source of truth. Questions answered through public Issues are visible to all teams. Event announcements and registration reminders are shared through [the CRSU Discord server](https://discord.gg/ka3uRZza6).
 
