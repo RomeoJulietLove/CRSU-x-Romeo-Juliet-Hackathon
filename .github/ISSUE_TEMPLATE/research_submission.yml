@@ -1,0 +1,27 @@
+name: "Research submission"
+description: "Submit the research note before 11 October, 23:59 IST"
+body:
+  - type: markdown
+    attributes:
+      value: "Public issue: do not include personal information, real-member data or credentials."
+  - type: textarea
+    id: team
+    attributes:
+      label: "Team name and size"
+      description: "One to four participants; do not include contact details."
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: "Public research-note URL"
+      description: "Link a PDF or Markdown note accessible without credentials."
+    validations:
+      required: true
+  - type: textarea
+    id: approach
+    attributes:
+      label: "Approach summary"
+      description: "Describe the hypothesis, allocation and clarification method."
+    validations:
+      required: true
