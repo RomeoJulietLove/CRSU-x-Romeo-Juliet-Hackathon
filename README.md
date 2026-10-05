@@ -23,7 +23,7 @@ On Windows, use `py` instead of `python` if needed. On macOS/Linux, use `python3
 - **Teams:** 1–3 participants.
 - **Round 1 (research and ideation):** 5–11 October 2026.
 - **Final build:** 12–18 October 2026.
-- **Registration:** complete registration on both [Unstop](https://unstop.com/) and [events.romeojuliet.love](https://events.romeojuliet.love/). Complete the event site's voice chat; it issues a participant code that you must enter on Unstop.
+- **Registration:** complete registration on both [Unstop](https://unstop.com/) and [events.romeojuliet.love](https://events.romeojuliet.love/crsu-hackathon-2026). Complete the event site's voice chat; it issues a participant code that you must enter on Unstop.
 - **Mentorship and workshops:** these are not part of the CRSU track.
 
 Use the Research, Final submission and Question issue forms linked below for technical submissions and questions. Event registration or the participant code is handled through Unstop and the event website, not through GitHub.
